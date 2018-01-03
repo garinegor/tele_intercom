@@ -21,7 +21,8 @@ while True:
         camera.start_preview()
         sleep(4)
         camera.stop_preview()
-        name=who_is(path)
+        name=who_is(path, 0)
+        print(name)
         if name!=None:
             pygame.mixer.Sound('./voice/'+name+'.wav').play()
 
