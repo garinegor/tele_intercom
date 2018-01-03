@@ -26,6 +26,6 @@ while True:
         name=who_is(path, 0)
         print(name)
         if name!=None:
-            playsound('./voice/'+name+'.wav')
+            playsound('./voice/'+name+'.mp3')
 
         sleep(0.2)
