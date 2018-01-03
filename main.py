@@ -1,8 +1,9 @@
 from picamera import PiCamera
 from time import sleep
 from funcs import *
+from playsound import playsound
 import RPi.GPIO as GPIO
-import pygame, os
+
 
 
 GPIO.setmode(GPIO.BCM)
@@ -17,13 +18,14 @@ camera.hflip = True
 while True:
     if GPIO.input(21) == False:
         path='./guests/new.jpg'
-        camera.capture(path)
         camera.start_preview()
         sleep(4)
         camera.stop_preview()
+        camera.capture(path)
+        print('guest')
         name=who_is(path, 0)
         print(name)
         if name!=None:
-            pygame.mixer.Sound('./voice/'+name+'.wav').play()
+            playsound('./voice/'+name+'.wav')
 
         sleep(0.2)
