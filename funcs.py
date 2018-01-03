@@ -14,7 +14,7 @@ def who_is(path,group_id):
 		if len(result[0]['candidates'])!=0:
 			result=result[0]['candidates'][0]
 			print(result)
-			if result['confidence']>0.6:
+			if result['confidence']>0.5:
 				to_r=CF.person.get(group_id,result['personId'])['name']
 	return to_r
 def add_person(name,group=1):

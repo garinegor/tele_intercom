@@ -27,7 +27,3 @@ while True:
             pygame.mixer.Sound('./voice/'+name+'.wav').play()
 
         sleep(0.2)
-
-camera.start_preview()
-camera.stop_preview()
-camera.capture('./persons/')
