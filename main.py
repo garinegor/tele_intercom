@@ -1,10 +1,10 @@
-from picamera import PiCamera
-from time import sleep
 from funcs import *
+from time import sleep
+from telebot import types
+from picamera import PiCamera
 from playsound import playsound
 import RPi.GPIO as GPIO
-
-
+import config,telebot
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -14,6 +14,10 @@ GPIO.setup(13, GPIO.OUT)
 camera = PiCamera()
 camera.vflip = True
 camera.hflip = True
+
+names = {'George':'егор',
+         'Irina':'ирка',
+         'Artem':'артем'}
 
 while True:
     if GPIO.input(21) == False:
@@ -27,5 +31,9 @@ while True:
         print(name)
         if name!=None:
             playsound('./voice/'+name+'.mp3')
-
+            bot.send_photo(chat_id=202226598, photo=open('./guests/new.jpg', 'rb'))
+            bot.send_message(chat_id=202226598,'пришел'+names[name])
+        else:
+            bot.send_photo(chat_id=202226598, photo=open('./guests/new.jpg', 'rb'))
+            bot.send_message(chat_id=202226598,'кто-то пришел')
         sleep(0.2)
