@@ -15,6 +15,8 @@ camera = PiCamera()
 camera.vflip = True
 camera.hflip = True
 
+bot = telebot.TeleBot(config.token)
+
 names = {'George':'егор',
          'Irina':'ирка',
          'Artem':'артем'}
