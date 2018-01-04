@@ -18,7 +18,7 @@ camera.hflip = True
 while True:
     if GPIO.input(21) == False:
         path='./guests/new.jpg'
-        camera.start_preview()
+        camera.start_preview(fullscreen=True)
         sleep(4)
         camera.stop_preview()
         camera.capture(path)
