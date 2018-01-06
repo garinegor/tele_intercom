@@ -21,7 +21,7 @@ GPIO.setup(13, GPIO.OUT)
 def start(message):
     bot.send_message(message.chat.id, "чтобы получить фото с домофона, нажми /photo")
     print(message.chat.id)
-@bot.message_handler(content_type=["audio"])
+@bot.message_handler(content_type=["voice"])
 def down_audio(message):
     print(message)
 
