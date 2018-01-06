@@ -23,7 +23,7 @@ def start(message):
     print(message.chat.id)
 @bot.message_handler(content_types=["voice"])
 def down_audio(message):
-    to_down=bot.download_file(bot.get_file(message['voice']['file_id'])['file_path'])
+    to_down=bot.download_file(bot.get_file(message.voice.file_id).file_path)
     print(to_down)
 
 if __name__ == '__main__':
