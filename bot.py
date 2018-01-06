@@ -24,6 +24,8 @@ def start(message):
 @bot.message_handler(content_types=["voice"])
 def down_audio(message):
     to_down=bot.download_file(bot.get_file(message.voice.file_id).file_path)
+    with open('new.ogg', 'wb') as new_file:
+        new_file.write(to_down)
     print(to_down)
 
 if __name__ == '__main__':
