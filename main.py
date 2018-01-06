@@ -34,7 +34,7 @@ while True:
         if name!=None:
             playsound('./voice/'+name+'.mp3')
             bot.send_photo(chat_id=202226598, photo=open('./guests/new.jpg', 'rb'))
-            bot.send_message(202226598,'пришел'+names[name])
+            bot.send_message(202226598,'пришел '+names[name])
         else:
             bot.send_photo(chat_id=202226598, photo=open('./guests/new.jpg', 'rb'))
             bot.send_message(202226598,'кто-то пришел')
