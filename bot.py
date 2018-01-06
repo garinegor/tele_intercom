@@ -29,6 +29,7 @@ def down_audio(message):
 @bot.message_handler(func = lambda:not(GPIO.input(21)))
 def button():
     print(1)
+    sleep(0.2)
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
