@@ -19,7 +19,7 @@ bot = telebot.TeleBot(config.token)
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(13, GPIO.OUT)
-GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.add_event_detect(21, GPIO.FALLING, callback=button, bouncetime=config.bounce)
 
 @bot.message_handler(commands=["start"])
