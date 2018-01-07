@@ -1,14 +1,14 @@
 from funcs import *
 from time import sleep
 from telebot import types
-from picamera import PiCamera
+# from picamera import PiCamera
 from playsound import playsound
 import RPi.GPIO as GPIO
 import config,telebot
 
-camera = PiCamera()
-camera.vflip = True
-camera.hflip = True
+# camera = PiCamera()
+# camera.vflip = True
+# camera.hflip = True
 
 bot = telebot.TeleBot(config.token)
 
