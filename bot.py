@@ -36,6 +36,10 @@ GPIO.setup(13, GPIO.OUT)
 GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.add_event_detect(21, GPIO.FALLING, callback=button, bouncetime=config.bounce)
 
+names = {'George':'егор',
+         'Irina':'ирка',
+         'Artem':'артем'}
+
 @bot.message_handler(commands=["start"])
 def start(message):
     bot.send_message(message.chat.id, "чтобы получить фото с домофона, нажми /photo")
