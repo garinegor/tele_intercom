@@ -1,10 +1,10 @@
 from funcs import *
+import config,telebot
 from time import sleep
+import RPi.GPIO as GPIO
 from telebot import types
 # from picamera import PiCamera
 from playsound import playsound
-import RPi.GPIO as GPIO
-import config,telebot
 
 def button(channel):
     bot.send_message(202226598,'кто-то пришел')
@@ -19,7 +19,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(13, GPIO.OUT)
 GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.add_event_detect(21, GPIO.FALLING, callback=button, bouncetime=300)
+GPIO.add_event_detect(21, GPIO.FALLING, callback=button, bouncetime=config.bounce)
 
 @bot.message_handler(commands=["start"])
 def start(message):
