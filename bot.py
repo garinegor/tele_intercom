@@ -16,7 +16,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(13, GPIO.OUT)
 GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.add_event_detect(21, GPIO.FALLING, callback=my_callback, bouncetime=300)
+GPIO.add_event_detect(21, GPIO.FALLING, callback=button, bouncetime=300)
 
 @bot.message_handler(commands=["start"])
 def start(message):
