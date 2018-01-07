@@ -6,6 +6,9 @@ from playsound import playsound
 import RPi.GPIO as GPIO
 import config,telebot
 
+def button(channel):
+    bot.send_message(202226598,'кто-то пришел')
+
 # camera = PiCamera()
 # camera.vflip = True
 # camera.hflip = True
@@ -28,9 +31,6 @@ def down_audio(message):
     with open('new.ogg', 'wb') as new_file:
         new_file.write(to_down)
     print('voice has been downloaded')
-
-def button(channel):
-    bot.send_message(202226598,'кто-то пришел')
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
