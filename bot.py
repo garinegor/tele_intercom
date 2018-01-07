@@ -8,7 +8,7 @@ from playsound import playsound
 
 def button(channel):
     bot.send_message(202226598,'кто-то пришел')
-    sleep(0.2)
+    print(channel)
 
 # camera = PiCamera()
 # camera.vflip = True
