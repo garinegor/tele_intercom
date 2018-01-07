@@ -3,16 +3,30 @@ import config,telebot
 from time import sleep
 import RPi.GPIO as GPIO
 from telebot import types
-# from picamera import PiCamera
+from picamera import PiCamera
 from playsound import playsound
 
 def button(channel):
-    bot.send_message(202226598,'кто-то пришел')
+    path='./guests/new.jpg'
+    camera.start_preview(fullscreen=True)
+    sleep(4)
+    camera.stop_preview()
+    camera.capture(path)
+    print('guest')
+    name=who_is(path, 0)
+    print(name)
+    if name!=None:
+        playsound('./voice/'+name+'.mp3')
+        bot.send_photo(chat_id=202226598, photo=open('./guests/new.jpg', 'rb'))
+        bot.send_message(202226598,'пришел '+names[name])
+    else:
+        bot.send_photo(chat_id=202226598, photo=open('./guests/new.jpg', 'rb'))
+        bot.send_message(202226598,'кто-то пришел')
     print(channel)
 
-# camera = PiCamera()
-# camera.vflip = True
-# camera.hflip = True
+camera = PiCamera()
+camera.vflip = True
+camera.hflip = True
 
 bot = telebot.TeleBot(config.token)
 
@@ -32,6 +46,7 @@ def down_audio(message):
     with open('new.ogg', 'wb') as new_file:
         new_file.write(to_down)
     print('voice has been downloaded')
+    # воспроизведение голоса
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
